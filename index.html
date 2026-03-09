@@ -3,92 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIZAM MCPE | Minecraft & VPS Hosting</title>
+    <title>NIZAMCLOUD | Next Level Hosting</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0f172a; color: white; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        :root { --primary: #3b82f6; --dark: #0a0f1d; --card: #161d31; }
+        body { background-color: var(--dark); color: white; scroll-behavior: smooth; }
+        .nav-glass { background: rgba(10, 15, 29, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(10, 15, 29, 0) 70%); }
+        .card-hosting { background: var(--card); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .card-hosting:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
+        .btn-primary { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); transition: all 0.3s; }
+        .btn-primary:hover { opacity: 0.9; transform: scale(1.02); }
     </style>
 </head>
-<body class="font-sans">
+<body>
 
-    <header class="py-10 text-center">
-        <h1 class="text-4xl font-bold gradient-text">NIZAM MCPE STORE</h1>
-        <p class="text-gray-400 mt-2">Solusi Server Minecraft & VPS Murah Berkualitas</p>
-    </header>
+    <nav class="nav-glass fixed w-full z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="bg-blue-600 p-2 rounded-lg"><i class="fas fa-cloud text-white"></i></div>
+            <span class="text-xl font-black tracking-tighter">NIZAM<span class="text-blue-500">CLOUD</span></span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+            <a href="#hosting" class="hover:text-white transition">Hosting</a>
+            <a href="#pembayaran" class="hover:text-white transition">Payment</a>
+            <a href="https://wa.me/6283862601567" class="hover:text-white transition">Support</a>
+        </div>
+    </nav>
 
-    <div class="container mx-auto px-4 max-w-6xl">
+    <section class="hero-gradient pt-32 pb-20 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">Experience <br><span class="text-blue-500">Next Level!!</span></h1>
+        <p class="max-w-2xl mx-auto text-gray-400 leading-relaxed mb-10">
+            Jadikan pengalaman bermain kalian menggunakan hosting kami. Rasakan performa, keamanan, dan support yang bikin hati adem bareng platform hosting kita.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#hosting" class="btn-primary px-8 py-3 rounded-xl font-bold flex items-center gap-2">
+                <i class="fas fa-rocket"></i> Get Started
+            </a>
+            <a href="#pembayaran" class="bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-xl font-bold flex items-center gap-2">
+                <i class="fas fa-bolt text-blue-400"></i> Explore Payment
+            </a>
+        </div>
+    </section>
+
+    <section id="hosting" class="py-20 px-6 container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Pilih Solusi <span class="text-blue-500">Hosting Anda</span></h2>
         
-        <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <div class="glass p-6 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-blue-400">Minecraft Hosting</h3>
-                <ul class="text-gray-300 space-y-2 mb-6 text-sm">
-                    <li>✅ Pterodactyl Panel</li>
-                    <li>✅ RAM DDR4/DDR5</li>
-                    <li>✅ CPU High Frequency</li>
-                    <li>✅ Low Latency</li>
-                </ul>
-                <p class="text-2xl font-bold">Mulai Rp 5.000</p>
-            </div>
-
-            <div class="glass p-6 rounded-2xl border-blue-500/50">
-                <h3 class="text-xl font-semibold mb-4 text-purple-400">VPS Hosting</h3>
-                <ul class="text-gray-300 space-y-2 mb-6 text-sm">
-                    <li>✅ Full Root Access</li>
-                    <li>✅ Ubuntu/Debian/CentOS</li>
-                    <li>✅ Anti DDoS</li>
-                    <li>✅ Uptime 99.9%</li>
-                </ul>
-                <p class="text-2xl font-bold">Mulai Rp 25.000</p>
-            </div>
-
-            <div class="glass p-6 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-green-400">Pterodactyl Setup</h3>
-                <ul class="text-gray-300 space-y-2 mb-6 text-sm">
-                    <li>✅ Install Panel + Wings</li>
-                    <li>✅ Custom Theme</li>
-                    <li>✅ Setup Database/Egg</li>
-                    <li>✅ Link Domain</li>
-                </ul>
-                <p class="text-2xl font-bold">Hubungi Kami</p>
-            </div>
-        </div>
-
-        <div class="glass p-8 rounded-3xl mb-16 max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-6 italic">Metode Pembayaran</h2>
+        <div class="grid md:grid-cols-3 gap-8">
             
-            <div class="grid md:grid-cols-2 gap-8 items-center text-left">
-                <div class="bg-white p-4 rounded-xl">
-                    <img src="IMG_20260309_210704.jpg" alt="QRIS NIZAM MCPE" class="w-full rounded-md shadow-inner">
-                    <p class="text-black font-extrabold mt-3 text-center text-[10px] uppercase tracking-widest">Scan QRIS NIZAM MCPE</p>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="bg-gray-800/50 p-4 rounded-xl border border-white/5">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Nomor GoPay / WA</p>
-                        <p class="text-lg font-mono font-bold text-blue-300">083862601567</p>
-                    </div>
-                    <div class="bg-gray-800/50 p-4 rounded-xl border border-white/5">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Atas Nama</p>
-                        <p class="text-lg font-bold text-white uppercase italic">NIZAM MCPE</p>
-                    </div>
-                </div>
+            <div class="card-hosting p-8 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-blue-600/20 text-blue-400 px-4 py-1 rounded-bl-xl text-xs font-bold uppercase">Basic</div>
+                <img src="https://i.ibb.co/L8v6vPz/minecraft-grass.png" class="w-16 mb-6" alt="Icon">
+                <h3 class="text-2xl font-bold mb-2">Basic 1GB</h3>
+                <p class="text-gray-500 text-sm mb-6">AMD EPYC 4244P</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                    <li><i class="fas fa-microchip text-blue-500 mr-2"></i> 100% vCPU</li>
+                    <li><i class="fas fa-memory text-blue-500 mr-2"></i> 1GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd text-blue-500 mr-2"></i> 3GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired text-blue-500 mr-2"></i> Node: Publik</li>
+                </ul>
+                <div class="text-3xl font-black mb-6">Rp 10.000</div>
+                <button onclick="orderWA('1GB', 'Rp 10.000', 'BASIC', 'PUBLIK')" class="w-full btn-primary py-3 rounded-xl font-bold uppercase tracking-wider">Add to Cart <i class="fas fa-shopping-cart ml-2"></i></button>
             </div>
 
-            <div class="mt-10">
-                <a href="https://wa.me/6283862601567?text=Halo%20Nizam%20MCPE%2C%20saya%20ingin%20konfirmasi%20pembayaran%3A%0A%0ABARANG%20%3A%20%0AHARGA%20%3A%20%0AVOUCHER%20%3A%20%0A%0ASertakan%20Bukti%20TF%20di%20bawah%20ini%3A" 
-                   class="inline-block w-full bg-green-600 hover:bg-green-700 text-white font-black py-4 px-8 rounded-2xl transition duration-300 shadow-xl shadow-green-900/40 uppercase tracking-tighter">
-                    Konfirmasi Pembayaran (WhatsApp)
-                </a>
+            <div class="card-hosting p-8 rounded-3xl border-blue-500/50 scale-105 z-10">
+                <div class="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 rounded-bl-xl text-xs font-bold uppercase">Popular</div>
+                <img src="https://i.ibb.co/vX8Ym0r/minecraft-diamond.png" class="w-16 mb-6" alt="Icon">
+                <h3 class="text-2xl font-bold mb-2">Medium 4GB</h3>
+                <p class="text-gray-500 text-sm mb-6">AMD RYZEN 7 5800X</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                    <li><i class="fas fa-microchip text-blue-500 mr-2"></i> 200% vCPU</li>
+                    <li><i class="fas fa-memory text-blue-500 mr-2"></i> 4GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd text-blue-500 mr-2"></i> 10GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired text-blue-500 mr-2"></i> Node: Publik</li>
+                </ul>
+                <div class="text-3xl font-black mb-6">Rp 40.000</div>
+                <button onclick="orderWA('4GB', 'Rp 40.000', 'MEDIUM', 'PUBLIK')" class="w-full btn-primary py-3 rounded-xl font-bold uppercase tracking-wider">Add to Cart <i class="fas fa-shopping-cart ml-2"></i></button>
+            </div>
+
+            <div class="card-hosting p-8 rounded-3xl">
+                <div class="absolute top-0 right-0 bg-red-600/20 text-red-400 px-4 py-1 rounded-bl-xl text-xs font-bold uppercase">Extreme</div>
+                <img src="https://i.ibb.co/yYy8hY9/minecraft-netherite.png" class="w-16 mb-6" alt="Icon">
+                <h3 class="text-2xl font-bold mb-2">Extreme 8GB</h3>
+                <p class="text-gray-500 text-sm mb-6">AMD RYZEN 9 9950X</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                    <li><i class="fas fa-microchip text-blue-500 mr-2"></i> 300% vCPU</li>
+                    <li><i class="fas fa-memory text-blue-500 mr-2"></i> 8GB DDR4 RAM</li>
+                    <li><i class="fas fa-hdd text-blue-500 mr-2"></i> 20GB NVMe SSD</li>
+                    <li><i class="fas fa-network-wired text-blue-500 mr-2"></i> Node: PRIVATE</li>
+                </ul>
+                <div class="text-3xl font-black mb-6">Rp 80.000</div>
+                <button onclick="orderWA('8GB', 'Rp 80.000', 'EXTREME', 'PRIVATE')" class="w-full btn-primary py-3 rounded-xl font-bold uppercase tracking-wider">Add to Cart <i class="fas fa-shopping-cart ml-2"></i></button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pembayaran" class="py-20 bg-[#0f172a]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="card-hosting p-10 rounded-[40px] text-center">
+                <h2 class="text-3xl font-black mb-8 italic tracking-tighter uppercase">Metode Pembayaran</h2>
+                
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div class="bg-white p-6 rounded-3xl shadow-2xl shadow-blue-500/10">
+                        <img src="44542.jpg" alt="QRIS NIZAM" class="w-full rounded-xl">
+                        <div class="mt-4 flex justify-center items-center gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest">QRIS Merchant</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-left space-y-6">
+                        <div class="bg-gray-900/50 p-6 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">E-Wallet / WA</p>
+                            <p class="text-2xl font-mono text-blue-400 font-bold tracking-tighter">0838 6260 1567</p>
+                        </div>
+                        <div class="bg-gray-900/50 p-6 rounded-2xl border border-white/5">
+                            <p class="text-xs text-gray-400 uppercase font-bold tracking-widest mb-1">Atas Nama</p>
+                            <p class="text-2xl font-bold text-white uppercase italic">NIZAM MCPE</p>
+                        </div>
+                        <p class="text-[10px] text-gray-500 leading-relaxed italic">
+                            *Silahkan pilih paket di atas terlebih dahulu untuk mendapatkan format konfirmasi otomatis ke WhatsApp.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
-
-    <footer class="py-10 text-center text-gray-600 text-[10px] border-t border-gray-800 tracking-[0.2em] uppercase">
-        &copy; 2026 NIZAM MCPE Hosting. All Rights Reserved.
+    <footer class="py-12 text-center border-t border-gray-900 text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+        &copy; 2026 NIZAMCLOUD - High Performance Hosting
     </footer>
 
+    <script>
+        function orderWA(ram, harga, tipe, node) {
+            const phoneNumber = "6283862601567";
+            const message = `*Halo kak aku mau konfirmasi pembayaran panel minecraft*%0A%0A` +
+                            `PANEL MINECRAFT : ${ram}%0A` +
+                            `HARGA : ${harga}%0A` +
+                            `TIPE : ${tipe}%0A` +
+                            `NODE : ${node}%0A%0A` +
+                            `*SERTAKAN BUKTI TF*`;
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
 </body>
 </html>
