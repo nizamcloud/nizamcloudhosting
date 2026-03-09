@@ -3,108 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIZAMCLOUD | Premium Hosting</title>
+    <title>NIZAMCLOUD | High Performance Hosting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #050810; color: white; }
-        .glass-card { background: rgba(22, 29, 49, 0.7); border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
-        .btn-gradient { background: linear-gradient(90deg, #3b82f6, #1d4ed8); transition: 0.3s; }
-        .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-        .glow-text { text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        body { 
+            background-color: #030712; 
+            color: #f3f4f6; 
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent),
+                              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);
+        }
+
+        .aero-card {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .aero-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .btn-aero {
+            background: #3b82f6;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .btn-aero:hover {
+            background: #2563eb;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        .nav-item {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #9ca3af;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
     </style>
 </head>
-<body class="font-sans">
+<body class="pb-20">
 
-    <nav class="p-6 flex justify-between items-center border-b border-white/5 bg-[#050810]/80 sticky top-0 z-50">
-        <div class="text-2xl font-black tracking-tighter italic glow-text">NIZAM<span class="text-blue-500">CLOUD</span></div>
-        <div class="flex gap-4">
-             <a href="#pembayaran" class="text-xs uppercase font-bold text-gray-400 mt-1">Payment</a>
-             <div class="h-6 w-[1px] bg-white/10"></div>
-             <i class="fas fa-bars text-blue-500 text-xl"></i>
+    <nav class="sticky top-0 z-50 bg-[#030712]/90 backdrop-blur-md border-b border-white/5 px-6 py-5 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center shadow-lg shadow-blue-600/30">
+                <i class="fas fa-server text-white text-xs"></i>
+            </div>
+            <div class="text-xl font-extrabold tracking-tighter italic uppercase text-glow">
+                NIZAM<span class="text-blue-500">CLOUD</span>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-6 nav-item">
+            <a href="#" class="text-blue-500">Home</a>
+            <a href="#plans" class="hover:text-white transition">Pricing</a>
+            <a href="#pembayaran" class="hover:text-white transition">Payment</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="text-[10px] font-bold uppercase text-gray-400">Network Stable</span>
         </div>
     </nav>
 
     <header class="py-16 px-6 text-center">
-        <h1 class="text-5xl font-extrabold mb-4 tracking-tighter">THE NEXT <span class="text-blue-500 italic">GENERATION</span></h1>
-        <p class="text-gray-400 text-sm max-w-xs mx-auto">Sewa server Minecraft performa tinggi dengan panel Pterodactyl termurah.</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight uppercase italic">Pilih Paket <span class="text-blue-600">Hosting</span></h1>
+        <p class="text-gray-500 text-sm max-w-lg mx-auto uppercase tracking-widest font-semibold">High Performance Nodes • DDoS Protection • 99.9% Uptime</p>
     </header>
 
-    <div class="container mx-auto px-6 grid gap-6 mb-20">
+    <main id="plans" class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <div class="glass-card p-6 rounded-[2rem] flex flex-col items-center border-l-4 border-blue-500">
-            <div class="bg-blue-500/10 p-4 rounded-2xl mb-4">
-                <i class="fas fa-cube text-3xl text-blue-500"></i>
+        <div class="aero-card p-8 rounded-3xl relative overflow-hidden group">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                <i class="fas fa-microchip text-6xl"></i>
             </div>
-            <h3 class="text-xl font-black uppercase tracking-widest">Panel 1GB</h3>
-            <p class="text-gray-500 text-[10px] mb-4">TIPE: BASIC | NODE: PUBLIK</p>
-            <div class="text-3xl font-black mb-6">Rp 5.000<span class="text-xs text-gray-500">/bln</span></div>
-            <button onclick="kirimWA('1GB', 'Rp 5.000', 'BASIC', 'PUBLIK')" class="w-full btn-gradient py-3 rounded-xl font-black uppercase italic tracking-tighter">
-                Order Now <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-
-        <div class="glass-card p-6 rounded-[2rem] flex flex-col items-center border-l-4 border-purple-500">
-            <div class="bg-purple-500/10 p-4 rounded-2xl mb-4">
-                <i class="fas fa-bolt text-3xl text-purple-500"></i>
-            </div>
-            <h3 class="text-xl font-black uppercase tracking-widest">Panel 4GB</h3>
-            <p class="text-gray-500 text-[10px] mb-4">TIPE: MEDIUM | NODE: PUBLIK</p>
-            <div class="text-3xl font-black mb-6">Rp 15.000<span class="text-xs text-gray-500">/bln</span></div>
-            <button onclick="kirimWA('4GB', 'Rp 15.000', 'MEDIUM', 'PUBLIK')" class="w-full btn-gradient py-3 rounded-xl font-black uppercase italic tracking-tighter">
-                Order Now <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-
-        <div class="glass-card p-6 rounded-[2rem] flex flex-col items-center border-l-4 border-cyan-400">
-            <div class="bg-cyan-400/10 p-4 rounded-2xl mb-4">
-                <i class="fas fa-crown text-3xl text-cyan-400"></i>
-            </div>
-            <h3 class="text-xl font-black uppercase tracking-widest">Panel 8GB</h3>
-            <p class="text-gray-500 text-[10px] mb-4">TIPE: EXTREME | NODE: PRIVATE</p>
-            <div class="text-3xl font-black mb-6">Rp 30.000<span class="text-xs text-gray-500">/bln</span></div>
-            <button onclick="kirimWA('8GB', 'Rp 30.000', 'EXTREME', 'PRIVATE')" class="w-full btn-gradient py-3 rounded-xl font-black uppercase italic tracking-tighter">
-                Order Now <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-
-    </div>
-
-    <div id="pembayaran" class="mx-6 mb-20">
-        <div class="glass-card p-8 rounded-[2.5rem] text-center">
-            <h2 class="text-2xl font-black italic mb-8 uppercase tracking-tighter">Payment Method</h2>
+            <h3 class="text-2xl font-black mb-1 uppercase italic tracking-tighter">Panel 1GB</h3>
+            <p class="text-[10px] font-bold text-blue-500 mb-6 uppercase tracking-[0.2em]">Starter Package</p>
             
-            <div class="bg-white p-4 rounded-3xl mb-8 inline-block">
-                <img src="IMG_20260309_210704.jpg" alt="QRIS NIZAMCLOUD" class="w-64 rounded-xl shadow-2xl">
+            <div class="space-y-4 mb-10">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">CPU Power</span>
+                    <span class="font-bold">100% vCPU</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Memory</span>
+                    <span class="font-bold">1GB DDR4</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Disk Space</span>
+                    <span class="font-bold">Unlimited NVMe</span>
+                </div>
+                <div class="flex items-center justify-between text-sm border-t border-white/5 pt-4">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Node Location</span>
+                    <span class="font-bold text-blue-400">PUBLIK</span>
+                </div>
             </div>
 
-            <div class="space-y-4 max-w-xs mx-auto">
-                <div class="bg-gray-900/50 py-4 px-6 rounded-2xl border border-white/5">
-                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">GoPay / WhatsApp</p>
-                    <p class="text-xl font-mono text-blue-400 font-bold">0838 6260 1567</p>
-                </div>
-                <p class="text-[10px] text-gray-500 italic uppercase">*Pilih paket di atas untuk konfirmasi otomatis</p>
+            <div class="flex items-center justify-between gap-4">
+                <div class="text-2xl font-black italic">Rp 5.000</div>
+                <button onclick="order('1GB', 'Rp 5.000', 'BASIC', 'PUBLIK')" class="btn-aero px-8 py-3 rounded-xl text-xs flex-1">Order</button>
             </div>
         </div>
-    </div>
 
-    <footer class="py-10 text-center text-gray-700 text-[10px] font-bold tracking-[0.3em] uppercase">
-        &copy; 2026 NIZAMCLOUD.
+        <div class="aero-card p-8 rounded-3xl relative overflow-hidden group border-blue-500/50 bg-blue-500/5">
+            <div class="absolute top-0 left-0 bg-blue-600 text-white text-[9px] font-black px-4 py-1 rounded-br-lg uppercase italic tracking-tighter">Recommended</div>
+            <h3 class="text-2xl font-black mb-1 uppercase italic tracking-tighter text-blue-400">Panel 4GB</h3>
+            <p class="text-[10px] font-bold text-gray-400 mb-6 uppercase tracking-[0.2em]">Most Popular</p>
+            
+            <div class="space-y-4 mb-10">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">CPU Power</span>
+                    <span class="font-bold text-blue-400">200% vCPU</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Memory</span>
+                    <span class="font-bold">4GB DDR4</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Disk Space</span>
+                    <span class="font-bold">Unlimited NVMe</span>
+                </div>
+                <div class="flex items-center justify-between text-sm border-t border-white/5 pt-4">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Node Location</span>
+                    <span class="font-bold text-blue-400 uppercase">PUBLIK</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between gap-4">
+                <div class="text-2xl font-black italic">Rp 15.000</div>
+                <button onclick="order('4GB', 'Rp 15.000', 'MEDIUM', 'PUBLIK')" class="btn-aero px-8 py-3 rounded-xl text-xs flex-1">Order</button>
+            </div>
+        </div>
+
+        <div class="aero-card p-8 rounded-3xl relative overflow-hidden group">
+            <h3 class="text-2xl font-black mb-1 uppercase italic tracking-tighter text-red-500">Panel 8GB</h3>
+            <p class="text-[10px] font-bold text-gray-400 mb-6 uppercase tracking-[0.2em]">Ultimate Power</p>
+            
+            <div class="space-y-4 mb-10">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">CPU Power</span>
+                    <span class="font-bold text-red-500">350% vCPU</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Memory</span>
+                    <span class="font-bold">8GB DDR4</span>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Disk Space</span>
+                    <span class="font-bold">Unlimited NVMe</span>
+                </div>
+                <div class="flex items-center justify-between text-sm border-t border-white/5 pt-4">
+                    <span class="text-gray-500 font-bold uppercase text-[10px]">Node Location</span>
+                    <span class="font-bold text-red-400 uppercase tracking-tighter font-black underline">PRIVATE</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between gap-4">
+                <div class="text-2xl font-black italic">Rp 30.000</div>
+                <button onclick="order('8GB', 'Rp 30.000', 'EXTREME', 'PRIVATE')" class="btn-aero px-8 py-3 rounded-xl text-xs flex-1 bg-red-600 hover:bg-red-700">Order</button>
+            </div>
+        </div>
+    </main>
+
+    <section id="pembayaran" class="mt-24 px-6">
+        <div class="aero-card max-w-3xl mx-auto rounded-[3rem] p-10 border-blue-500/20 shadow-2xl shadow-blue-500/5">
+            <h2 class="text-center text-3xl font-black italic uppercase tracking-tighter mb-10 underline decoration-blue-500 decoration-4 underline-offset-8">Payment System</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col items-center">
+                    <div class="bg-white p-3 rounded-3xl shadow-xl border-4 border-blue-600">
+                        <img src="IMG_20260309_210704.jpg" alt="QRIS NIZAMCLOUD" class="w-56 rounded-xl">
+                    </div>
+                    <p class="mt-4 text-[10px] font-black uppercase tracking-[0.3em] text-blue-500">Scan QRIS Above</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 group hover:border-blue-500 transition">
+                        <span class="text-[9px] text-gray-500 uppercase font-black tracking-widest block mb-2">Gopay / WhatsApp</span>
+                        <div class="flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-blue-500 text-xl font-bold"></i>
+                            <span class="text-2xl font-mono text-white font-bold tracking-tighter">0838 6260 1567</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <span class="text-[9px] text-gray-500 uppercase font-black tracking-widest block mb-2">Merchant Name</span>
+                        <span class="text-2xl font-black italic uppercase text-white">NIZAM MCPE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-500 italic font-bold">
+                        *Klik tombol ORDER pada paket di atas untuk diarahkan ke WhatsApp dengan format otomatis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-32 text-center text-gray-700 text-[10px] uppercase font-black tracking-[0.5em]">
+        &copy; 2026 NIZAMCLOUD. Next-Gen Hosting Solution.
     </footer>
 
     <script>
-        function kirimWA(ram, harga, tipe, node) {
-            const noWA = "6283862601567";
-            const teks = `*Halo kak aku mau konfirmasi pembayaran panel minecraft*%0A%0A` +
-                         `PANEL MINECRAFT : ${ram}%0A` +
-                         `HARGA : ${harga}%0A` +
-                         `TIPE : ${tipe}%0A` +
-                         `NODE : ${node}%0A%0A` +
-                         `*SERTAKAN BUKTI TF*`;
+        function order(ram, harga, tipe, node) {
+            const phoneNumber = "6283862601567";
+            const message = `*Halo kak aku mau konfirmasi pembayaran panel minecraft*%0A%0A` +
+                            `PANEL MINECRAFT : ${ram}%0A` +
+                            `HARGA : ${harga}%0A` +
+                            `TIPE : ${tipe}%0A` +
+                            `NODE : ${node}%0A%0A` +
+                            `*SERTAKAN BUKTI TF*`;
             
-            window.open(`https://wa.me/${noWA}?text=${teks}`, '_blank');
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
         }
     </script>
-
 </body>
 </html>
