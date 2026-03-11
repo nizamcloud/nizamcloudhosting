@@ -1,35 +1,9 @@
-// DATABASE PRODUK - Sesuaikan atau tambah di sini
-const products = [
-    { id: 1, name: "Panel Minecraft (Private)", price: 50000, node: "Private" },
-    { id: 2, name: "Panel Minecraft (Public)", price: 25000, node: "Public" },
-    { id: 3, name: "Server Hosting Premium", price: 100000, node: "High-End" },
-    { id: 4, name: "Setup Plugin Custom", price: 75000, node: "Internal" }
-];
-
 let cart = [];
 
-// Menampilkan produk ke HTML
-function init() {
-    const container = document.getElementById('product-container');
-    if(!container) return;
-    container.innerHTML = "";
-    products.forEach(p => {
-        container.innerHTML += `
-            <div class="card">
-                <h3>${p.name}</h3>
-                <p>Node: ${p.node}</p>
-                <div class="price">Rp ${p.price.toLocaleString()}</div>
-                <button onclick="addToCart(${p.id})">Beli Sekarang</button>
-            </div>
-        `;
-    });
-}
-
-function addToCart(id) {
-    const item = products.find(p => p.id === id);
-    cart.push(item);
+function addToCart(name, price, node) {
+    cart.push({ name, price, node });
     updateCart();
-    alert("🔥 " + item.name + " Berhasil Masuk Keranjang!");
+    alert(name + " ditambahkan ke keranjang!");
 }
 
 function updateCart() {
@@ -37,13 +11,7 @@ function updateCart() {
     const totalSpan = document.getElementById('cart-total');
     let total = 0;
     
-    itemsDiv.innerHTML = cart.map(item => `
-        <div style="display:flex; justify-content:space-between; margin-bottom:5px; border-bottom:1px solid #333;">
-            <span>${item.name}</span>
-            <span>Rp ${item.price.toLocaleString()}</span>
-        </div>
-    `).join('');
-
+    itemsDiv.innerHTML = cart.map(item => `<p>${item.name} - Rp ${item.price.toLocaleString()}</p>`).join('');
     cart.forEach(item => total += item.price);
     totalSpan.innerText = `Rp ${total.toLocaleString()}`;
 }
@@ -57,35 +25,24 @@ function closePayment() {
     document.getElementById('payment-modal').style.display = 'none';
 }
 
-// LOGIKA PEMBAYARAN DAN OTOMATISASI WHATSAPP
 function checkout() {
-    if (cart.length === 0) return alert("Keranjang masih kosong, Tuan!");
-
-    // Tutup modal keranjang, buka modal pembayaran
+    if (cart.length === 0) return alert("Keranjang kosong!");
     document.getElementById('cart-modal').style.display = 'none';
     document.getElementById('payment-modal').style.display = 'block';
 
     const waNumber = "6283862601567";
     const waBtn = document.getElementById('wa-confirm-btn');
 
-    // MENGAMBIL DATA UNTUK TEKS KONFIRMASI
     let listBarang = cart.map(item => item.name).join(", ");
     let listNode = cart.map(item => item.node).join(", ");
     let totalHarga = cart.reduce((sum, item) => sum + item.price, 0);
 
-    // FORMAT PESAN SESUAI PERINTAH
     const pesan = `Kak aku mau konfirmasi pembayaran\n\nBARANG : ${listBarang}\nHARGA : Rp ${totalHarga.toLocaleString()}\nNODE : ${listNode}`;
     
-    // EKSEKUSI TOMBOL WHATSAPP
     waBtn.onclick = () => {
-        const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(pesan)}`;
-        window.open(url, '_blank');
-        
-        // Opsional: Reset keranjang setelah konfirmasi diklik
+        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(pesan)}`, '_blank');
         cart = [];
         updateCart();
         closePayment();
     };
 }
-
-window.onload = init;
