@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OxyX Store - Minecraft Services</title>
+    <title>NIZAM MCPE Store - Minecraft Services</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>OxyX <span>Minecraft Store</span></h1>
+        <h1>NIZAM <span>MCPE Store</span></h1>
         <p>Server Hosting, Plugin, & Tools Tanpa Batas</p>
     </header>
 
@@ -31,13 +31,20 @@
     <div id="payment-modal" class="modal">
         <div class="modal-content" style="text-align: center;">
             <h2 style="color: #00d1ff;">Metode Pembayaran</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" width="120" alt="GoPay">
-            <div style="background: #222; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px dashed var(--primary-color);">
-                <p>Silakan transfer ke nomor GoPay:</p>
-                <h3 style="color: #39ff14; font-size: 1.5rem;">6283862601567</h3>
-                <p>A/N: OXYX STORE</p>
+            
+            <div style="background: #fff; padding: 10px; border-radius: 10px; display: inline-block; margin-bottom: 15px;">
+                <p style="color: #000; font-weight: bold; margin-bottom: 5px; font-size: 0.8rem;">SCAN QRIS DI BAWAH</p>
+                <img src="IMG_20260309_210704.jpg" width="220" alt="QRIS NIZAM MCPE" style="border: 2px solid #000; border-radius: 5px;">
             </div>
-            <p style="font-size: 0.9rem;">Klik tombol di bawah setelah transfer untuk konfirmasi otomatis.</p>
+
+            <div style="background: #222; padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px dashed var(--primary-color);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" width="100" alt="GoPay" style="margin-bottom: 10px;">
+                <p>Transfer GoPay / Scan QRIS di atas:</p>
+                <h3 style="color: #39ff14; font-size: 1.5rem; margin: 5px 0;">6283862601567</h3>
+                <p>A/N: <strong style="color: #fff; font-size: 1.2rem;">NIZAM MCPE</strong></p>
+            </div>
+            
+            <p style="font-size: 0.85rem; color: #bbb;">Klik konfirmasi untuk mengirim bukti ke WhatsApp.</p>
             <button id="wa-confirm-btn" class="btn-wa">Konfirmasi via WhatsApp</button>
             <button class="btn-secondary" onclick="closePayment()">Batal</button>
         </div>
