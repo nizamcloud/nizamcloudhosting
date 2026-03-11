@@ -3,170 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIZAMCLOUD | Step Ordering System</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-        body { background: #020617; color: white; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        .font-cyber { font-family: 'Orbitron', sans-serif; }
-        .step-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: 0.3s; cursor: pointer; }
-        .step-card:hover { border-color: #3b82f6; transform: translateY(-5px); background: rgba(59, 130, 246, 0.1); }
-        .step-card.active { border-color: #3b82f6; background: rgba(59, 130, 246, 0.2); box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-        .hidden-step { display: none; opacity: 0; transform: translateY(20px); transition: 0.5s; }
-        .show-step { display: block; opacity: 1; transform: translateY(0); }
-        .btn-wa { background: linear-gradient(90deg, #3b82f6, #1d4ed8); font-family: 'Orbitron', sans-serif; }
-    </style>
+    <title>OxyX Store - Minecraft Services</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="pb-20">
+<body>
+    <header>
+        <h1>OxyX <span>Minecraft Store</span></h1>
+        <p>Server Hosting, Plugin, & Tools Tanpa Batas</p>
+    </header>
 
-    <nav class="p-6 border-b border-white/5 flex justify-between items-center bg-[#020617]">
-        <div class="text-2xl font-black font-cyber tracking-widest italic text-blue-500">NIZAM<span class="text-white">CLOUD</span></div>
-        <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
-    </nav>
-
-    <div class="container mx-auto px-6 max-w-4xl">
-        
-        <header class="py-12 text-center">
-            <h1 class="text-3xl font-extrabold uppercase italic tracking-tighter">Konfigurasi <span class="text-blue-500">Server</span></h1>
-            <p class="text-gray-500 text-xs mt-2 uppercase tracking-[0.3em]">Ikuti langkah berikut untuk memesan</p>
-        </header>
-
-        <div id="step-1" class="mb-10">
-            <h2 class="text-sm font-black uppercase tracking-widest mb-4 text-blue-400"><i class="fas fa-network-wired mr-2"></i> Langkah 1: Pilih Node</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <div onclick="selectNode('PUBLIC', this)" class="step-card p-6 rounded-2xl text-center">
-                    <i class="fas fa-globe text-2xl mb-2"></i>
-                    <p class="font-bold uppercase tracking-tighter">Node Public</p>
-                </div>
-                <div onclick="selectNode('PRIVATE', this)" class="step-card p-6 rounded-2xl text-center">
-                    <i class="fas fa-lock text-2xl mb-2"></i>
-                    <p class="font-bold uppercase tracking-tighter">Node Private</p>
-                </div>
+    <div class="container">
+        <div class="product-grid" id="product-container">
             </div>
-        </div>
-
-        <div id="step-2" class="hidden-step mb-10">
-            <h2 class="text-sm font-black uppercase tracking-widest mb-4 text-blue-400"><i class="fas fa-layer-group mr-2"></i> Langkah 2: Pilih Tipe Paket</h2>
-            <div class="grid grid-cols-3 gap-3">
-                <div onclick="selectType('BASIC', this)" class="step-card p-4 rounded-xl text-center">
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Basic</p>
-                </div>
-                <div onclick="selectType('MEDIUM', this)" class="step-card p-4 rounded-xl text-center">
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Medium</p>
-                </div>
-                <div onclick="selectType('EXTREME', this)" class="step-card p-4 rounded-xl text-center">
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Extreme</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="step-3" class="hidden-step mb-10">
-            <h2 class="text-sm font-black uppercase tracking-widest mb-4 text-blue-400"><i class="fas fa-memory mr-2"></i> Langkah 3: Pilih Kapasitas RAM</h2>
-            <div id="ram-list" class="grid grid-cols-1 gap-3">
-                </div>
-        </div>
-
-        <div id="step-4" class="hidden-step">
-            <div class="card-gaming p-8 rounded-[2rem] bg-blue-600/5 border border-blue-500/30 text-center">
-                <h3 class="text-xl font-black font-cyber mb-6 uppercase italic tracking-widest">Ringkasan Pesanan</h3>
-                <div class="bg-black/40 p-6 rounded-2xl mb-8 text-left space-y-2 border border-white/5">
-                    <p class="text-xs text-gray-400">Barang: <span id="summary-item" class="text-white font-bold uppercase"></span></p>
-                    <p class="text-xs text-gray-400">Node: <span id="summary-node" class="text-white font-bold uppercase tracking-widest"></span></p>
-                    <p class="text-xs text-gray-400">Harga: <span id="summary-price" class="text-blue-400 font-black"></span></p>
-                </div>
-
-                <div class="bg-white p-4 rounded-2xl mb-8 inline-block">
-                    <img src="IMG_20260309_210704.jpg" class="w-48 rounded-lg" alt="QRIS">
-                </div>
-
-                <button onclick="checkout()" class="w-full btn-wa py-4 rounded-2xl font-black font-cyber uppercase tracking-widest italic shadow-lg shadow-blue-500/40">
-                    Konfirmasi via WhatsApp
-                </button>
-            </div>
-        </div>
-
     </div>
 
-    <script>
-        let selectedNode = "";
-        let selectedType = "";
-        let selectedRam = "";
-        let selectedPrice = "";
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>🛒 Keranjang Belanja</h2>
+            <div id="cart-items"></div>
+            <hr>
+            <p>Total: <strong id="cart-total">Rp 0</strong></p>
+            <button class="btn-primary" onclick="checkout()">Lanjut Pembayaran</button>
+            <button class="btn-secondary" onclick="toggleCart()">Tutup</button>
+        </div>
+    </div>
 
-        function selectNode(node, el) {
-            selectedNode = node;
-            document.querySelectorAll('#step-1 .step-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-            
-            showStep('step-2');
-            resetSteps(['step-3', 'step-4']);
-        }
+    <div id="payment-modal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <h2 style="color: #00d1ff;">Metode Pembayaran</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" width="120" alt="GoPay">
+            <div style="background: #222; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px dashed var(--primary-color);">
+                <p>Silakan transfer ke nomor GoPay:</p>
+                <h3 style="color: #39ff14; font-size: 1.5rem;">6283862601567</h3>
+                <p>A/N: OXYX STORE</p>
+            </div>
+            <p style="font-size: 0.9rem;">Klik tombol di bawah setelah transfer untuk konfirmasi otomatis.</p>
+            <button id="wa-confirm-btn" class="btn-wa">Konfirmasi via WhatsApp</button>
+            <button class="btn-secondary" onclick="closePayment()">Batal</button>
+        </div>
+    </div>
 
-        function selectType(type, el) {
-            selectedType = type;
-            document.querySelectorAll('#step-2 .step-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
+    <button class="cart-btn" onclick="toggleCart()">🛒</button>
 
-            const ramList = document.getElementById('ram-list');
-            ramList.innerHTML = "";
-            
-            // Database RAM & Harga sederhana
-            const prices = {
-                'BASIC': [{r:'1GB', p:'Rp 5.000'}, {r:'2GB', p:'Rp 10.000'}],
-                'MEDIUM': [{r:'4GB', p:'Rp 20.000'}, {r:'6GB', p:'Rp 30.000'}],
-                'EXTREME': [{r:'8GB', p:'Rp 40.000'}, {r:'12GB', p:'Rp 60.000'}, {r:'UNLIMITED', p:'Rp 100.000'}]
-            };
-
-            prices[type].forEach(item => {
-                const div = document.createElement('div');
-                div.className = "step-card p-4 rounded-xl flex justify-between items-center";
-                div.onclick = () => selectRam(item.r, item.p, div);
-                div.innerHTML = `<span class="font-bold">${item.r}</span> <span class="text-blue-400 font-black">${item.p}</span>`;
-                ramList.appendChild(div);
-            });
-
-            showStep('step-3');
-            resetSteps(['step-4']);
-        }
-
-        function selectRam(ram, price, el) {
-            selectedRam = ram;
-            selectedPrice = price;
-            document.querySelectorAll('#ram-list .step-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-
-            document.getElementById('summary-item').innerText = `PANEL MINECRAFT ${ram} (${selectedType})`;
-            document.getElementById('summary-node').innerText = selectedNode;
-            document.getElementById('summary-price').innerText = price;
-
-            showStep('step-4');
-        }
-
-        function showStep(id) {
-            const step = document.getElementById(id);
-            step.style.display = "block";
-            setTimeout(() => step.classList.add('show-step'), 10);
-        }
-
-        function resetSteps(ids) {
-            ids.forEach(id => {
-                const step = document.getElementById(id);
-                step.style.display = "none";
-                step.classList.remove('show-step');
-            });
-        }
-
-        function checkout() {
-            const phone = "6283862601567";
-            const text = `*Halo kak aku mau konfirmasi pembayaran panel minecraft*%0A%0A` +
-                         `PANEL MINECRAFT : ${selectedRam}%0A` +
-                         `HARGA : ${selectedPrice}%0A` +
-                         `TIPE : ${selectedType}%0A` +
-                         `NODE : ${selectedNode}%0A%0A` +
-                         `*SERTAKAN BUKTI TF*`;
-            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
